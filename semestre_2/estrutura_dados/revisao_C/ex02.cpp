@@ -1,11 +1,11 @@
-//2. Classificador de Números: Um cientista está analisando 10 resultados de sensores e precisa entender o comportamento dos valores medidos. 
-	// Leia 10 números inteiros em um vetor e informe: 
+//2. Classificador de NÃºmeros: Um cientista estÃ¡ analisando 10 resultados de sensores e precisa entender o comportamento dos valores medidos. 
+	// Leia 10 nÃºmeros inteiros em um vetor e informe: 
 //
-//- Quantos são positivos 
+//- Quantos sÃ£o positivos 
 //
-//- Quantos são negativos 
+//- Quantos sÃ£o negativos 
 //
-//- Quantos são múltiplos de 3 
+//- Quantos sÃ£o mÃºltiplos de 3 
 
 
 
