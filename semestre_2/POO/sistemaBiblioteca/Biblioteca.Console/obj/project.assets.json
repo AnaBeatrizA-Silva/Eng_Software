@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\an05.silva\\Documents\\semestre_2\\POO\\sistemaBiblioteca\\Biblioteca.Console\\Biblioteca.Console.csproj",
+      "projectUniqueName": "C:\\Users\\an05.silva\\Documents\\Eng_Software\\semestre_2\\POO\\sistemaBiblioteca\\Biblioteca.Console\\Biblioteca.Console.csproj",
       "projectName": "Biblioteca.Console",
-      "projectPath": "C:\\Users\\an05.silva\\Documents\\semestre_2\\POO\\sistemaBiblioteca\\Biblioteca.Console\\Biblioteca.Console.csproj",
+      "projectPath": "C:\\Users\\an05.silva\\Documents\\Eng_Software\\semestre_2\\POO\\sistemaBiblioteca\\Biblioteca.Console\\Biblioteca.Console.csproj",
       "packagesPath": "C:\\Users\\an05.silva\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\an05.silva\\Documents\\semestre_2\\POO\\sistemaBiblioteca\\Biblioteca.Console\\obj\\",
+      "outputPath": "C:\\Users\\an05.silva\\Documents\\Eng_Software\\semestre_2\\POO\\sistemaBiblioteca\\Biblioteca.Console\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -72,7 +72,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\program files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
