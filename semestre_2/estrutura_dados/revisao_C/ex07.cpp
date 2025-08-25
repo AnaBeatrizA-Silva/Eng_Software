@@ -3,7 +3,7 @@
 
 int main(void) {
 	
-	char nome[100];
+	char nome[100], carac;
 	int sumT = 0, sumV = 0;
 	
 	printf("Digite seu nome: ");
@@ -12,16 +12,25 @@ int main(void) {
 	printf("%s", nome);
 	
 	for(int i = 0; nome[i] != '\0'; i++) {
-		if(nome[i] == '\0') sumT--;
+		if((nome[i] >= 'A' && nome[i] <= 'Z') || (nome[i] >= 'a' && nome[i] <= 'z')) {
+			sumT++;
+		}
 		
-		if(nome[i] == ' ') sumT--;
+		if(nome[i] >= 'a' && nome[i] <= 'z') {
+			nome[i] -= 32;
+		}
 		
-		if(nome[i] == '\n') sumT--;
+		switch(nome[i]) {
+			case 'A': case 'E': case 'I': case 'O': case 'U': 
+				sumV++;
+				break;
+		}
 		
-		sumT++;
+		
 	}
 
-	printf("%i", sumT);
-
-	return 0;
+	printf("%i \n", sumT);
+	printf("%i \n", sumV);
+                    
+	return 0;       
 }
