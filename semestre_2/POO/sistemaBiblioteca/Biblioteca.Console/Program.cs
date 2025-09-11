@@ -12,14 +12,13 @@ Console.Clear();
 
 Console.WriteLine("---=== Sistema de Biblioteca ---===");
 
-// Cria o objeto 'livro1'
-Livro livro1 = new Livro(67, "Senhor do Anéis","JRR Tolkien", 1270, 120.80);
-
-// Cria o objeto 'livro2'
-Livro livro2 = new Livro(11, "Harry Potter", "JK Rowling", 350, 70.65);
+livros.Add(new Livro(67, "Senhor do Anéis", "JRR Tolkien", 1270, 120.80));
+livros.Add(new Livro(11, "Harry Potter", "JK Rowling", 350, 70.65));
+livros.Add(new Livro(12, "Como Viver para Sempre", "Não sei", 150, 30.00));
 
 // Imprime os livros
-livro1.ImprimirLivro();
-livro2.ImprimirLivro();
+livros[0].ImprimirLivro();
+livros[1].ImprimirLivro();
+livros[2].ImprimirLivro();
 
 Console.ReadKey();  
