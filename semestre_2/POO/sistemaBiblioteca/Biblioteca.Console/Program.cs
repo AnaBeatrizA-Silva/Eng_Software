@@ -16,9 +16,9 @@ livros.Add(new Livro(67, "Senhor do Anéis", "JRR Tolkien", 1270, 120.80));
 livros.Add(new Livro(11, "Harry Potter", "JK Rowling", 350, 70.65));
 livros.Add(new Livro(12, "Como Viver para Sempre", "Não sei", 150, 30.00));
 
-// Imprime os livros
-livros[0].ImprimirLivro();
-livros[1].ImprimirLivro();
-livros[2].ImprimirLivro();
+for (int i = 0; i < livros.Count; i++)
+{
+    livros[i].ImprimirLivro();
+}
 
 Console.ReadKey();  
