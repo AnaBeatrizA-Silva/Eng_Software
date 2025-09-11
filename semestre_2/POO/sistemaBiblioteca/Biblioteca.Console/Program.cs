@@ -1,25 +1,23 @@
-﻿/*
+﻿Tela tela = new Tela(
+    80,
+    25,
+    ConsoleColor.Black,
+    ConsoleColor.Yellow
+);
 
-Cada classe em um arquivo, cada arquivo com apenas uma classe
+string opcao = "";
 
-Arquivo e classe com o mesmo nome.
+List<string> menu = new List<string>();
 
-*/
+menu.Add("1 - Empréstimos");
+menu.Add("2 - Livros");
+menu.Add("3 - Alunos");
+menu.Add("4 - Relatórios");
 
-List<Livro> livros = new List<Livro>();
-
-Console.Clear();
-
-Console.WriteLine("---=== Sistema de Biblioteca ---===");
-
-
-livros.Add(new Livro(67, "Senhor do Anéis", "JRR Tolkien", 1270, 120.80));
-livros.Add(new Livro(11, "Harry Potter", "JK Rowling", 350, 70.65));
-livros.Add(new Livro(12, "Como Viver para Sempre", "Não sei", 150, 30.00));
-
-foreach (Livro item in livros)
+while (true)
 {
-    item.ImprimirLivro();
-}
+    tela.prepararTela();
 
-Console.ReadKey();  
+    if (opcao == "0") break;
+    Console.ReadKey();
+}
