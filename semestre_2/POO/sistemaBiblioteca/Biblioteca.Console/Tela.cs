@@ -13,12 +13,20 @@ public class Tela
 
     // Métodos 
 
+    // Construtor sobrecarregado
+    public Tela(int lar, int alt)
+    {
+        this.largura = lar;
+        this.altura = alt;
+    }
+
+    //Construtor sobrecarregado
     public Tela(int lar, int alt, ConsoleColor txt, ConsoleColor fund)
     {
         this.largura = lar;
         this.altura = alt;
-        this.corFundo = fund;
         this.corTexto = txt;
+        this.corFundo = fund;
     }
 
     public void prepararTela()
@@ -53,5 +61,51 @@ public class Tela
             Console.SetCursorPosition(colFin, linha);
             Console.Write("║");
         }
+
+        Console.SetCursorPosition(colIni, linIni);
+        Console.Write("╔");
+        Console.SetCursorPosition(colIni, linFin);
+        Console.Write("╚");
+        Console.SetCursorPosition(colFin, linIni);
+        Console.Write("╗");
+        Console.SetCursorPosition(colFin, linFin);
+        Console.Write("╝");
+    }
+
+    public void MontarTela(int col, int lin, List<string> dados)
+    {
+        this.MontarMoldura(col, lin, col+this.largura, lin+this.altura);
+
+        col++;
+        lin += 2;
+        foreach (string pergunta in dados)
+        {
+            Console.SetCursorPosition(col, lin);
+            Console.Write(pergunta);
+            lin++;
+        }
+    }
+
+    public string MostrarMenu(List<string> opcoes, int col, int lin)
+    {
+        string opcaoEscolhida = "";
+        int colFin = col + opcoes[0].Length + 1;
+        int linFin = lin + opcoes.Count + 2;
+        this.MontarMoldura(col, lin, colFin, linFin);
+
+        col++;
+        lin++;
+        for (int i = 0; i < opcoes.Count; i++)
+        {
+            Console.SetCursorPosition(col, lin);
+            Console.Write(opcoes[i]);
+            lin++;
+        }
+
+        Console.SetCursorPosition(col, lin);
+        Console.Write("Opção: ");
+        opcaoEscolhida = Console.ReadLine();
+
+        return opcaoEscolhida;
     }
 }
