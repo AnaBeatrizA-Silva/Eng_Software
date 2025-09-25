@@ -4,6 +4,9 @@
 
 */
 
+using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
+
 public class Tela
 {
     // Propriedades
@@ -72,12 +75,15 @@ public class Tela
         Console.Write("╝");
     }
 
-    public void MontarTela(int col, int lin, List<string> dados)
+    public void MontarTela(int col, int lin, List<string> dados, string titulo)
     {
-        this.MontarMoldura(col, lin, col+this.largura, lin+this.altura);
+        this.MontarMoldura(col, lin, col + this.largura, lin + this.altura);
 
         col++;
-        lin += 2;
+        lin++;
+        Console.SetCursorPosition(col, lin);
+        Console.Write(titulo);
+        lin++;
         foreach (string pergunta in dados)
         {
             Console.SetCursorPosition(col, lin);
@@ -107,5 +113,18 @@ public class Tela
         opcaoEscolhida = Console.ReadLine();
 
         return opcaoEscolhida;
+    }
+
+    public void MostrarMensagem(int col, int lin, string msg)
+    {
+        Console.SetCursorPosition(col, lin);
+        Console.Write(msg);
+    }
+
+    public string Perguntar(int col, int lin, string perg)
+    {
+        this.MostrarMensagem(col, lin, perg);
+        string resp = Console.ReadLine();
+        return resp;
     }
 }
