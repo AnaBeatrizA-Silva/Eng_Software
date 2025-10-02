@@ -1,0 +1,96 @@
+@startuml
+
+/'
+
+  Um determinado museu de Joinville promoverá um leilão de artes a fim de arrecadar fundos para instituições carentes. Para gerenciar o acesso ao museu, será necessário um cadastro dos convidados com informações pessoais ou jurídicas. As obras que serão leiloadas, bem como informações sobre sua origem e seu valor também deverão estar registradas no sistema. O cliente que desejar adquirir a obra deve, obrigatoriamente, estar cadastrado com todos os seus dados, além das informações do cartão de crédito, que será a única forma de pagamento aceita. 
+  
+  -----------
+  Classes: Convidado, Carta, Obra, Compra, Endereco
+
+'/
+
+
+skinparam classAttributeIconSize 0
+skinparam nodesep 100
+
+class Convidado {
+  - id: int
+  - nome: string
+  - tipoPessoa: string
+  - cpfCnpj: string
+  - telefone: string
+  - email: string
+  - enderecoId: int
+  + registrar()
+  + atualizarCadastro()
+  + adicionarCartao()
+  + removerCartao()
+  + solicitarCompra()
+}
+
+class Cartao {
+  - id: int
+  - numeroMascarado: string
+  - token: string       
+  - titular: string
+  - validade: Date
+  - bandeira: string
+  + gerarToken()
+  + validarToken() : bool
+}
+
+class Obra {
+  - id: int
+  - titulo: string
+  - pintor: string
+  - origem: string
+  - ano: int
+  - valorBase: Decimal
+  - status: string
+  + cadastrarObra()
+  + atualizarInfo()
+  + marcarComoVendida()
+}
+
+class Compra {
+  - id: int
+  - obraId: int
+  - compradorId: int
+  - cartaoId: int
+  - valor: Decimal
+  - data: DateTime
+  - status: string
+  + processarPagamento()
+  + emitirRecibo()
+  + cancelar()
+  + estornar()
+}
+
+class Leilao {
+  - id: int
+  - dataInicio: DateTime
+  - dataFim: DateTime
+  + iniciar()
+  + receberLance()
+  + encerrar()
+  + declararVencedor()
+}
+
+class Endereco {
+  - rua: string
+  - numero: string
+  - cidade: string
+  - cep: string
+  - estado: string
+}
+
+
+Convidado "1" *-left- "0..*" Cartao
+Compra "1" --* "1" Convidado 
+Compra "1" --* "1" Cartao 
+Leilao "1" -left-* "0..*" Obra 
+Obra "0..1" -right-* "1" Compra
+Convidado "1" o-right- "0..*" Endereco
+@enduml
+
+
