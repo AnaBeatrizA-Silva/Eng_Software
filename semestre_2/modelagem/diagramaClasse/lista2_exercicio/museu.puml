@@ -14,6 +14,59 @@ skinparam classAttributeIconSize 0
 skinparam nodesep 100
 
 class Convidado {
+  - nome: string
+  - telefone: int
+  - email: string
+  - endereco: string
+}
+
+class Fisico {
+  - CPF: string
+  - dtNasc: date
+  - genero: string
+  - nomeSocila: string
+} /* Herda de Convidado */
+
+class Juridico {
+  - CNPJ: string
+  - razaoSocial: string
+} /* Herda de Convidado */
+
+class cartaoCred {
+  - numero: int
+  - bandeira: string
+  - dataVal: date
+  - codSeguranca: int
+} /* Composicao ao Convidado */
+
+class Obra {
+  - valorBase: double
+  - nome: string
+  - origem: string
+} /* 1.* */
+
+class Artista {
+  - nome: string
+  - origem: string
+} /* Agregacao a Obra - 1 */
+
+class Lance {
+  - valor: double
+  - dthr: datetime
+
+  + identMaiorLance(): bool
+} /* Associao a Convidado (1-*), Associado a Obra (1-*) */
+
+class Leilao {
+  - local: string
+  - data: date
+  - horaIni: time
+  - horaFim: time
+} /* Composicao a Obra (1-*) */
+
+/*
+
+class Convidado {
   - id: int
   - nome: string
   - tipoPessoa: string
@@ -91,6 +144,7 @@ Compra "1" --* "1" Cartao
 Leilao "1" -left-* "0..*" Obra 
 Obra "0..1" -right-* "1" Compra
 Convidado "1" o-right- "0..*" Endereco
+*/
 @enduml
 
 
