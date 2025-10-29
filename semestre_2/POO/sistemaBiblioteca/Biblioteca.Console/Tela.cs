@@ -41,8 +41,22 @@ public class Tela
         this.MontarMoldura(0, 0, this.largura, this.altura);
     }
 
+    public void LimparArea(int colIni, int linIni, int colFin, int linFin)
+    {
+        for(int x = colIni; x <= colFin; x++)
+        {
+            for(int y = linIni; y <= linFin; y++)
+            {
+                Console.SetCursorPosition(x, y);
+                Console.Write(" ");
+            }
+        }
+    }
+
     public void MontarMoldura(int colIni, int linIni, int colFin, int linFin)
     {
+        this.LimparArea(colIni, linIni, colFin, linFin);
+        
         for (int coluna = colIni; coluna <= colFin; coluna++)
         {
             // Desenha a linha horizontal superior

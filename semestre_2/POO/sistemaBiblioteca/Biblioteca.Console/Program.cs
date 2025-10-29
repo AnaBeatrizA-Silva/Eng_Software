@@ -25,5 +25,5 @@ while (true)
     if (opcao == "0") break;
     if (opcao == "2") livroCRUD.ExecutarCRUD();
 
-    Console.ReadKey();
+
 }

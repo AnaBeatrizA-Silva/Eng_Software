@@ -7,7 +7,6 @@ public class LivroCRUD
     private int indice, coluna, linha, largura, altura;
     private List<string> dados;
 
-
     // Métodos
 
     // Construtor
@@ -18,11 +17,11 @@ public class LivroCRUD
         this.indice = -1;
 
         this.dados = new List<string>();
-        dados.Add("Codigo: "); // 1
-        dados.Add("Título: "); // 2
-        dados.Add("Autor: "); // 2
-        dados.Add("Páginas: "); // 2
-        dados.Add("Preço: "); // 2
+        dados.Add("Codigo  : "); // 1
+        dados.Add("Título  : "); // 2
+        dados.Add("Autor   : "); // 2
+        dados.Add("Páginas : "); // 2
+        dados.Add("Preço   : "); // 2
 
         this.coluna = 20;
         this.linha = 5;
@@ -66,6 +65,30 @@ public class LivroCRUD
         if (achou)
         {
             this.MostrarDados();
+            resp = tela.Perguntar(1, 23, "Deseja Alterar, Excluir ou Voltar (A/E/V): ");
+
+            if(resp.ToLower() == "a")
+            {
+                tela.LimparArea(coluna + 10, linha + 3, coluna + largura - 1, linha + 6);
+                this.EntrarDados(2);
+
+                resp = tela.Perguntar(1, 24, "Confirma alteração (S/N): ");
+                if(resp.ToLower() == "s")
+                {
+                    this.livros[this.indice].titulo = this.livro.titulo;
+                    this.livros[this.indice].autor = this.livro.autor;
+                    this.livros[this.indice].paginas = this.livro.paginas;
+                    this.livros[this.indice].preco = this.livro.preco;
+                }
+            }
+            if(resp.ToLower() == "e")
+            {
+                resp = tela.Perguntar(1, 24, "Confirma exclusão (S/N): ");
+                if(resp.ToLower() == "s")
+                {
+                    this.livros.RemoveAt(this.indice);
+                }
+            }
         }
     }
 
