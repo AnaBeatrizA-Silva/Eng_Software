@@ -1,6 +1,5 @@
 using System.Diagnostics.Contracts;
 
-
 public class Livro
 {
     // Propriedades
@@ -25,7 +24,7 @@ public class Livro
     public void ImprimirLivro()
     {
         Console.WriteLine($"--- Dados do Livro {this.codigo} ---");
-        Console.WriteLine($"Codigo: {this.codigo}"); // no c# não é obrigatório usar
+        Console.WriteLine($"Codigo: {this.codigo}"); // no c# não é obrigatório usar this
         Console.WriteLine($"Título: {this.titulo}");
         Console.WriteLine($"Autor: {this.autor}");
         Console.WriteLine($"Números de Páginas: {this.paginas}");
