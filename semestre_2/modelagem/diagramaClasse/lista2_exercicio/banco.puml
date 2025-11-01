@@ -1,0 +1,100 @@
+/'
+
+    Faça o diagrama de classe baseado nos requisitos de um sistema bancário apresentados abaixo: 
+
+    O sistema deve permitir o cadastro e alteração de clientes do banco os seguintes atributos: nome, endereço (rua, número, bairro, cep), telefone, data de nascimento para pessoa física, data de fundação para pessoa jurídica, e-mail, cpf (pessoa física) e cnpj (pessoa jurídica);  
+
+    O sistema deve permitir o cadastro e alteração dos bancos com os seguintes atributos: código e nome;  
+
+    O sistema deve permitir o cadastro e alteração das agências bancárias com os seguintes atributos: número da agência, nome, endereço (rua, número, bairro, cep), telefone, e-mail. Sabe-se que um banco pode ter várias agências. Uma agência pertence apenas a um banco;  
+
+    O sistema deve permitir a criação de contas nos(as) bancos/agências com os seguintes atributos: número da conta e saldo. Sabe-se que um cliente pode ter várias contas e uma conta pode ter mais de um cliente como administrador (contas conjuntas, contas empresariais, etc).  
+
+    Uma agência pode ter apenas dois tipos de contas: corrente e poupança. Para diferenciá-las é utilizado apenas a adição de (\1) no final da conta corrente. Exemplo: cc 5187, cp 5187\1;  
+
+    O sistema deve permitir que os clientes efetuem operações de saque, depósito, transferências e agendamento (futuro) em uma conta. O sistema deve manter o registro de todas as operações efetuadas pelos clientes;  
+
+    Os agendamentos de operações devem verificar a data do lançamento da operação para que a data informada não seja inferior à data atual. 
+
+'/
+
+@startuml Banco
+
+skinparam classAttributeIconSize 0
+left to right direction
+
+class Cliente {
+    - Nome: string
+    - Endereco: string
+    - Telefone: string
+    - Email: string
+    + cadastrar()
+    + alterar()
+}
+
+class PessoaFisica {
+    - Cpf: string
+    - DataNascimento: Date
+}
+
+class PessoaJuridica {
+    - Cnpj: string
+    - DataFundacao: Date
+}
+
+class Banco {
+    - Codigo: int
+    - Nome: string
+    + cadastrar()
+    + alterar()
+}
+
+class Agencia {
+    - NumeroAgencia: int
+    - Nome: string
+    - Endereco: string
+    - Telefone: string
+    - Email: string
+    + cadastrar()
+    + alterar()
+}
+
+class Conta {
+    - NumeroConta: string
+    - Saldo: float
+    + sacar()
+    + depositar()
+    + transferir()
+}
+
+class ContaCorrente {
+    - Identificador: string 
+}
+
+class ContaPoupanca {
+    - Identificador: string 
+}
+
+class Operacao {
+    - IdOperacao: int
+    - DataOperacao: DateTime
+    - Valor: float
+    - Tipo: string
+}
+
+class Agendamento {
+    - DataAgendada: DateTime
+    + verificarData()
+}
+
+Cliente <|-- PessoaFisica
+Cliente <|-- PessoaJuridica
+Conta <|-- ContaCorrente
+Conta <|-- ContaPoupanca
+Operacao <|-- Agendamento
+Banco "1" --> "1..*" Agencia
+Agencia "1" --> "1..*" Conta
+Cliente "0..*" -- "0..*" Conta
+Conta "1" --> "0..*" Operacao
+
+@enduml

@@ -1,0 +1,78 @@
+/'
+A cafeteria "Café Tech" está crescendo e precisa modernizar seu sistema de gestão. O objetivo é desenvolver um software para gerenciar os pedidos e o estoque de bebidas. 
+
+Você e sua equipe foram contratados como engenheiros de software para modelar a arquitetura de classes do sistema. O sistema deve atender às seguintes regras de negócio: 
+
+- Um Cliente deve ser registrado com seu Nome, Email e DataNascimento.  
+
+- O cardápio é composto por Produtos. Existem dois tipos principais de produtos: 
+
+a) Bebidas: Têm um Tamanho (Pequeno, Médio, Grande) e são feitas com ingredientes como Café Expresso, Leite, etc. 
+
+B) Comidas: Têm um Peso (em gramas) e um prazo de Validade. 
+
+- Todos os Produtos possuem um Nome, um PrecoBase e um método para calcular o preço final (calcularPrecoFinal()). 
+
+- O Pedido é a parte central do sistema. Um pedido é feito por um Cliente e é composto por vários Itens do Pedido. 
+
+- Cada Item do Pedido referencia um Produto e registra a Quantidade desejada. 
+
+- O Pedido tem um Status (ex: "Em Preparo", "Pronto") e a DataHora da emissão. 
+
+Crie o diagrama de classe para os requisitos para o Café Tech considerando todas as classes necessárias, seus atributos, métodos, relacionamentos e cardinalidade. Se sentir falta de algum atributo ou classe, não hesite em criá-los. 
+
+'/
+
+@startuml CafeTech
+
+skinparam classAttributeIconSize 0
+
+left to right direction
+
+class Cliente {
+    - Nome: string
+    - Email: string
+    - DataNascimento: DateTime
+    + cadastrarCliente()
+    + realizarPedido()
+}
+
+class Produto {
+    - Nome: string
+    - PrecoBase: float
+    + calcularPrecoFinal(): float
+}
+
+class Bebida {
+    - Tamanho: string
+    - Ingredientes: string
+    + calcularPrecoFinal(): float
+}
+
+class Comida {
+    - Peso: float
+    - prazoValidade: DateTime
+    + calcularPrecoFinal(): float
+}
+
+class Pedido {
+    - Status: string 
+    - DataEmissao: DateTime
+    + adicionarItem()
+    + calcularTotal(): float
+    + alterarStatus()
+}
+
+class ItemPedido {
+    - Quantidade: int
+    + calcularSubtotal(): float
+}
+
+
+Produto <|-- Bebida
+Produto <|-- Comida
+Cliente "1" <-- "0..*" Pedido 
+Pedido "1" <-- "1..*" ItemPedido 
+Produto "1" <-- "1..*" ItemPedido 
+
+@enduml
