@@ -1,4 +1,4 @@
-@startuml
+@startuml Museu
 
 /'
 
@@ -144,7 +144,8 @@ Compra "1" --* "1" Cartao
 Leilao "1" -left-* "0..*" Obra 
 Obra "0..1" -right-* "1" Compra
 Convidado "1" o-right- "0..*" Endereco
-*/
+
+
 @enduml
 
 

@@ -1,21 +1,57 @@
-/'
+    /'
 
-    Clube de leitura 
+        Clube de leitura 
 
-Gustavo tem uma coleção de revistas em quadrinhos que empresta aos seus amiguinhos com frequência. No entanto ele não tem um bom controle sobre quem está com qual revistinha e há quanto tempo. Por isso, decidiu criar o Clube da Leitura e para sua organização solicitou uma aplicação capaz de gerenciar as revistas e controlar os empréstimos. 
+    Gustavo tem uma coleção de revistas em quadrinhos que empresta aos seus amiguinhos com frequência. No entanto ele não tem um bom controle sobre quem está com qual revistinha e há quanto tempo. Por isso, decidiu criar o Clube da Leitura e para sua organização solicitou uma aplicação capaz de gerenciar as revistas e controlar os empréstimos. 
 
-Deve considerar os seguintes pontos: Para cada revista deve-se cadastrar o tipo da coleção (por exemplo: Cebolinha, Pato Donald, Batman etc.), o número da edição, o ano da revista e a caixa onde a revista está guardada, sendo que cada caixa tem uma cor, uma etiqueta e um número. 
+    Deve considerar os seguintes pontos: Para cada revista deve-se cadastrar o tipo da coleção (por exemplo: Cebolinha, Pato Donald, Batman etc.), o número da edição, o ano da revista e a caixa onde a revista está guardada, sendo que cada caixa tem uma cor, uma etiqueta e um número. 
 
-Para cada empréstimo deve-se informar o amiguinho que retirou a revista, qual foi a revista, a data de empréstimo e a data de devolução, sabendo que cada criança só pode pegar uma revista por empréstimo. 
+    Para cada empréstimo deve-se informar o amiguinho que retirou a revista, qual foi a revista, a data de empréstimo e a data de devolução, sabendo que cada criança só pode pegar uma revista por empréstimo. 
 
-O cadastro do amiguinho deve ter, no mínimo, os seguintes dados: nome do amiguinho, o nome da mãe, o telefone e de onde é o amigo (do prédio ou da escola). 
+    O cadastro do amiguinho deve ter, no mínimo, os seguintes dados: nome do amiguinho, o nome da mãe, o telefone e de onde é o amigo (do prédio ou da escola). 
 
-'/
+    '/
 
-@startuml
+@startuml Clube de Leitura
 
-class test {
-    
-}
+    skinparam classAttributeIconSize 0
+
+    class Revista {
+        - NumeroEdicao: int
+        - anoDaRevista: int
+        - TipoColecao: string
+
+        + cadastrarRevista()
+    }
+
+    class Emprestimo {
+        - dataEmprestimo: Date
+        - dataDevolucao: Date
+
+        + registrarEmprestimo()
+        + calcularDataDevolucao()
+    }
+
+    class Amigo {
+        - Nome: string
+        - NomeDaMae: string
+        - Telefone: string
+
+        + cadastrarAmigo()
+    }
+
+    class Caixa {
+        - NumeroCaixa: int
+        - CorCaixa: string
+        - EtiquetaCaixa: string
+
+        + cadastrarCaixa()
+        + vincularRevistaACaixa()
+    }
+
+    Revista "1..*" -- "1" Caixa
+    Emprestimo "1" --* "1" Revista
+    Emprestimo "1..*" --* "1" Amigo
+
 
 @enduml
