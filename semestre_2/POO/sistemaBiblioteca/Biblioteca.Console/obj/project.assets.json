@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\A\\.nuget\\packages\\": {}
+    "C:\\Users\\Ana\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\A\\Documents\\Ana\\faculdade\\Eng_Software\\semestre_2\\POO\\sistemaBiblioteca\\Biblioteca.Console\\Biblioteca.Console.csproj",
+      "projectUniqueName": "C:\\Users\\Ana\\Documents\\Ana\\faculdade\\Eng_Software\\semestre_2\\POO\\sistemaBiblioteca\\Biblioteca.Console\\Biblioteca.Console.csproj",
       "projectName": "Biblioteca.Console",
-      "projectPath": "C:\\Users\\A\\Documents\\Ana\\faculdade\\Eng_Software\\semestre_2\\POO\\sistemaBiblioteca\\Biblioteca.Console\\Biblioteca.Console.csproj",
-      "packagesPath": "C:\\Users\\A\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\A\\Documents\\Ana\\faculdade\\Eng_Software\\semestre_2\\POO\\sistemaBiblioteca\\Biblioteca.Console\\obj\\",
+      "projectPath": "C:\\Users\\Ana\\Documents\\Ana\\faculdade\\Eng_Software\\semestre_2\\POO\\sistemaBiblioteca\\Biblioteca.Console\\Biblioteca.Console.csproj",
+      "packagesPath": "C:\\Users\\Ana\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ana\\Documents\\Ana\\faculdade\\Eng_Software\\semestre_2\\POO\\sistemaBiblioteca\\Biblioteca.Console\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\A\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Ana\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
