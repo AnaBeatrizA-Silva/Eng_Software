@@ -1,0 +1,17 @@
+ insert into endereco value (1, "Joinville", "SC", "999999999", "78");
+select * from endereco;
+
+
+insert into mae value (1, "Maria", "8888888", "03/08/1900", "1");
+select * from mae;
+
+insert into medico value (1, "Marcos", 7777777, "Obstetra", "888888-SC");
+select * from medico;
+
+insert into bebe value (1, 1, 1, "Joao", 8, 6, "06/09,2026");
+select * from bebe;
+
+insert into endereco value (2, "Itajai", "SC", 777777777, 87);
+delete from endereco where id_end=2;
+
+ drop table bebe;

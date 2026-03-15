@@ -1,0 +1,29 @@
+create database clinica; 
+
+create table medico(
+	id_med int primary key,
+	nome varchar(30),
+	telefone int,
+	espec varchar(30),
+	crm varchar(9));
+
+create table endereço(
+	id_end primary key,
+	cidade varchar(30),
+	uf char(2),
+	cep int,
+	num casa int);
+
+ create table bebe(
+    id_bebe int primary key,
+    mae int,
+    medico int,
+    nome varchar(30),
+    peso_nasc float,
+    altura_nasc float,
+    dt_nasc varchar(12),
+    foreign key (mae) references mae(id_mae),
+    foreign key (medico) references medico(id_med));
+
+alter table mae modify dt_nasc varchar(10);
+alter table bebe modify dt_nasc varchar(10);
